@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="images/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">
+                <a href="men.html">Our Spacecrafts ▼</a> 
+                <a href ="women.html">Rentals ▼</a>
+            </div>
+            <div class="right">
+                <a href="contact.html">Contact</a>
+                <a href="cart.html"><img src="images/clean-bag.png" alt="Shop Cart"> </a>
+            </div>
+            <a href ="index.html"><h1>S P A C E</h1></a>
+        </nav>
+    </header>
+    
+<main>
+    <section>
+        <p>Thanks for taking the time to reach out to us!</p>
+        <p>Here at Space we are always trying our best to help our customers in any way we can. </p>
+        <p>Feel free to fill out the form below. Please be sure to include your correct email address so we can get back to you in a timely manner.</p>
+    <form id="myForm">
+        <div class="NE">
+            <input type="text" id="name" name="name" placeholder="Your Name">
+    
+            <input type="text" id="email" name="email" placeholder="Your Email">
+        </div>
+        <div class="M">
+            <textarea id="message" name="message" placeholder="Your Message"></textarea>
+        </div>
+        <div class="actions">
+            <input type="submit" value="Send Message">
+        </div>
+    </form> 
+    <div id="notification"></div>
+    <script>
+        // Listen for form submission
+        document.getElementById('myForm').addEventListener('submit', function(e) {
+            // Prevent default form submission
+            e.preventDefault();
+
+            // Display the notification
+            document.getElementById('notification').innerHTML = '<p>Your submission has been received!</p>';
+        });
+    </script>
+    </section>
+</main>
+
+    <div class="footer">
+        <footer>
+            <p>Copyright © 2024 Space. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

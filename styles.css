@@ -273,11 +273,11 @@ img{
     font-weight: bold;
     text-decoration: none;
     color: white;
-    border: 1px solid #df7116;
-    background-color: #df7116;
+    border: 1px solid #000000;
+    background-color: #000000;
     transition: all 1s;
     padding: 0.25rem 2rem 0.25rem 2rem;
-    background-image: linear-gradient(to right, #df7116 0%, white 50%, #df7116 100%);
+    background-image: linear-gradient(to right, #000000 0%, white 50%, #000000 100%);
     background-size: 200% 100%;
     background-position: left bottom;
   }

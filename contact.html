@@ -45,8 +45,7 @@
         <div class="M">
             <textarea id="message" name="message" placeholder="Your Message"></textarea>
         </div>
-        <div class="actions">
-            <input type="submit" value="Send Message">
+        <button class="but" onclick="submitReview()">Submit Message</button>
         </div>
     </form> 
     <div id="notification"></div>
@@ -61,12 +60,66 @@
         });
     </script>
     </section>
+     <!-- Review List Section (This section will display the submitted reviews) -->
+     <section>
+        <h3>User Messages:</h3>
+        <div id="reviewList">
+            <!-- Reviews will be displayed here -->
+        </div>
+    </section>
 </main>
 
-    <div class="footer">
+    <div class="footershop">
         <footer>
             <p>Copyright © 2024 STARLIFT. All rights reserved.</p>
         </footer>
     </div>
+
+
+    <script>
+        // Function to initialize and load reviews from localStorage
+        function loadReviews() {
+            const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+            const reviewList = document.getElementById("reviewList");
+            reviewList.innerHTML = ""; // Clear any existing content first
+
+            reviews.forEach(review => {
+                const reviewElement = document.createElement("p");
+                reviewElement.textContent = review;
+                reviewList.appendChild(reviewElement);
+            });
+        }
+
+        // Function to handle buying the ship
+        function buyShip() {
+            alert("Thank you for your purchase!"); // Placeholder action for Buy Ship
+        }
+
+        // Function to submit a new review
+        function submitReview() {
+            const reviewText = document.getElementById("review").value;
+            if (reviewText) {
+                // Get existing reviews from localStorage or set to empty array if none
+                const reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+                reviews.push(reviewText); // Add the new review
+
+                // Save the updated reviews back to localStorage
+                localStorage.setItem("reviews", JSON.stringify(reviews));
+
+                // Reload the reviews to show the newly added one
+                loadReviews();
+
+                document.getElementById("review").value = ""; // Clear the textarea
+                alert("Review submitted successfully!");
+            } else {
+                alert("Please write a review before submitting.");
+            }
+        }
+
+        // Load reviews when the page is loaded
+        window.onload = loadReviews;
+    </script>
+
+    
 </body>
 </html>

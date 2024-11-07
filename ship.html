@@ -32,7 +32,7 @@
     </header>
     <main>
         <section>
-            <h2>X-Craft Mark III</h2>
+            <h2>Our Spacecrafts</h2>
             <a href="X-CRAFT.html">
                 <div class="images">
                     <img src="images/lit ship.png" alt="X-Craft Mark III">
@@ -43,9 +43,24 @@
                     <span class="star">&#9733;</span>
                     <span class="star">&#9733;</span>
                     <span class="star">&#9733;</span>
-                    <p><button onclick="buyShip()">Buy Ship</button> <!-- Buy Ship Button --></p>
+                    <button onclick="buyShip()">Buy Ship</button> <!-- Buy Ship Button -->
                 </div>
             </a>
+        </section>
+
+        <!-- Review Section -->
+        <section class="reviews">
+            <h2>Reviews</h2>
+            <form id="reviewForm">
+                <label for="review">Leave a review:</label><br>
+                <textarea id="review" name="review" rows="4" cols="50" placeholder="Write your review here..."></textarea><br>
+                <button type="button" onclick="submitReview()">Submit Review</button>
+            </form>
+            <div id="reviewList">
+                <h3>User Reviews:</h3>
+                <!-- Reviews will be displayed here -->
+            </div>
+        </section>
     </main>
 
     <div class="footershop">
@@ -54,5 +69,24 @@
         </footer>
     </div>
 
+    <script>
+        function buyShip() {
+            alert("Thank you for your purchase!"); // Placeholder action for Buy Ship
+        }
+
+        function submitReview() {
+            const reviewText = document.getElementById("review").value;
+            if (reviewText) {
+                const reviewList = document.getElementById("reviewList");
+                const newReview = document.createElement("p");
+                newReview.textContent = reviewText;
+                reviewList.appendChild(newReview);
+                document.getElementById("review").value = ""; // Clear textarea
+                alert("Review submitted successfully!");
+            } else {
+                alert("Please write a review before submitting.");
+            }
+        }
+    </script>
 </body>
 </html>

@@ -286,6 +286,106 @@ img{
     background-color: white;
     background-position: right bottom;
   }
+  @media only screen and (max-width: 1700px) {
+/* reduce the margin on the images on the product pages */
+.images {
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+/* reduce the size of the images on the product pages */
+.images img {
+  width: 18rem;
+  height: 23rem;
+}
+    /* reduce the margin on the "Coming Soon" images on the homepage */
+    .soon {
+      margin-right: 2rem;
+      margin-left: 2rem;
+    }
+  
+    /* reduce the size of the "Coming Soon" images on the homepage */
+    .soon img {
+      width: 18rem;
+      height: 23rem;
+    }
+}
+@media only screen and (max-width: 1550px) {
+  /* reduce the margin on the images on the product pages */
+  .images {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+  /* reduce the size of the images on the product pages */
+  .images img {
+    width: 15rem;
+    height: 20rem;
+  }
+      /* reduce the margin on the "Coming Soon" images on the homepage */
+      .soon {
+        margin-right: 2rem;
+        margin-left: 2rem;
+      }
+    
+      /* reduce the size of the "Coming Soon" images on the homepage */
+      .soon img {
+        width: 15rem;
+        height: 20rem;
+      }
+  }
+  @media only screen and (max-width: 1250px) {
+    /*reduce the size of the headers under the images */
+    h3{
+      font-size: .70rem;
+    }
+    /* reduce the margin on the images on the product pages */
+    .images {
+      margin-right: 1.5rem;
+      margin-left: 1.5rem;
+    }
+    /* reduce the size of the images on the product pages */
+    .images img {
+      width: 12rem;
+      height: 17rem;
+    }
+        /* reduce the margin on the "Coming Soon" images on the homepage */
+        .soon {
+          margin-right: 1.5rem;
+          margin-left: 1.5rem;
+        }
+      
+        /* reduce the size of the "Coming Soon" images on the homepage */
+        .soon img {
+          width: 12rem;
+          height: 17rem;
+        }
+    }
+    @media only screen and (max-width: 1100px) {
+    /*reduce the size of the headers under the images */
+    h3{
+      font-size: .70rem;
+   }
+/* For Header On Each Page */
+header {
+  /* reduce the height of the header */
+  height: 4rem;
+}
+
+/* reduce the size of the header title */
+h1 {
+  font-size: 2rem;
+}
+
+/* reduce the padding on the left and right navigation links */
+header nav div a {
+    font-size: .75rem;
+  padding: 0.5rem;
+}
+
+/* reduce the size of the shopping cart icon */
+header nav .right a img {
+  height: 1rem;
+}
+      }
   @media only screen and (max-width: 600px) {
     /* styles for screens with a maximum width of 600px */
   
@@ -362,8 +462,8 @@ img{
     /*reduce the size of the headers under the images */
     h3{
         font-size: .65rem;
-    /*reduce the size of the footers*/
-    }
+     }
+     /*reduce the size of the footers*/
     .footer{
         padding: .1rem;
     }

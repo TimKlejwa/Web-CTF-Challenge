@@ -438,6 +438,11 @@ header nav .right a img {
     header nav .right a img {
       height: 1rem;
     }
+    /* reduce the size the credit box */
+    .credits-box {
+      padding: 5px 15px;
+      font-size: .5rem;
+    }
   
     /* reduce the size of the textarea in the contact form */
     form .M textarea {

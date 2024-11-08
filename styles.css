@@ -236,6 +236,14 @@ img{
     width: 23rem;
     height:30rem;
 }
+.spaceship-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.spaceship-link:visited {
+  color: #000;
+}
 
 /*Home Page Coming Soon*/
 

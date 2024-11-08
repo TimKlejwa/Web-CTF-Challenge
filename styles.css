@@ -19,6 +19,26 @@ header{
   height: 3rem;
 }
 
+.credits-box {
+  display: inline-block;
+  padding: 5px 15px;
+  background-color: #1a1918;
+  border-radius: 20px;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: 'Montserrat';
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-right: 15px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.credits-box span {
+  color: #f4c542; 
+}
+.credits-box:hover {
+  background-color: #444; 
+  transform: scale(1.05); 
+}
 h1{
     font-family: 'Montserrat';
     font-size: 3rem;

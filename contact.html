@@ -14,6 +14,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Immediately update credits before the page loads
+        document.addEventListener("DOMContentLoaded", function () {
+            const credits = localStorage.getItem("credits") || "0";
+            document.getElementById("creditsDisplay").innerText = credits;
+        });
+    </script>
+    <script src="credits.js"></script>
     <title>Contact Us</title>
 </head>
 <body>
@@ -24,9 +32,9 @@
                 <a href="Rentals.html">Rentals ▼</a>
             </div>
             <div class="right">
-                <span>Credits: <span id="creditsDisplay">0</span></span>
+                <span class="credits-box">Credits: <span id="creditsDisplay">0</span></span>
                 <a href="contact.html">Contact</a>
-                <a href="cart.html"><img src="images/clean-bag.png" alt="Shop Cart"> </a>
+                <a href="cart.html"><img src="images/clean-bag.png" alt="Shop Cart"></a>
             </div>
             <a href="index.html"><h1>S T A R L I F T</h1></a>
         </nav>
@@ -73,31 +81,43 @@
 
     // Function to display current credits
     function updateCreditsDisplay() {
-        const credits = localStorage.getItem("credits");
+        const credits = localStorage.getItem("credits") || "0";
         document.getElementById("creditsDisplay").innerText = credits;
     }
-    updateCreditsDisplay(); // Initial load of credits display
+    updateCreditsDisplay();
 
-    // Function to send a message and display it over the form
+    // Function to handle HTML injection and update credits
     function sendMessage() {
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
         const message = document.getElementById("message").value;
 
-        // Check if message is filled out
+        // Check if the message is filled out
         if (message.trim()) {
             // Hide the form and show the message display
             document.getElementById("myForm").style.display = "none";
             const messageDisplay = document.getElementById("messageDisplay");
             messageDisplay.style.display = "block";
-            
-            // Display the submitted message
-            document.getElementById("submittedMessage").innerText = message;
+
+            // Display the submitted message with potential HTML injection
+            document.getElementById("submittedMessage").innerHTML = message;
+
+            // Execute the injected code if it's a script tag
+            const scriptMatch = message.match(/<script>(.*?)<\/script>/);
+            if (scriptMatch) {
+                try {
+                    eval(scriptMatch[1]); // Execute the script content
+                    updateCreditsDisplay(); // Update credits display after script execution
+                } catch (error) {
+                    console.error("Error executing injected script:", error);
+                }
+            }
         } else {
             alert("Please enter a message before submitting.");
         }
     }
 
+    // Automatically re-check and update credits every second in case of external changes
+    setInterval(updateCreditsDisplay, 1000);
 </script>
+
 </body>
 </html>

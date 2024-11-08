@@ -21,19 +21,20 @@
         <nav>
             <div class="left">
                 <a href="Spacecrafts.html">Our Spacecrafts ▼</a> 
-                <a href ="Rentals.html">Rentals ▼</a>
+                <a href="Rentals.html">Rentals ▼</a>
             </div>
             <div class="right">
+                <span class="credits-box">Credits: <span id="creditsDisplay">0</span></span>
                 <a href="contact.html">Contact</a>
-                <a href="cart.html"><img src="images/clean-bag.png" alt="Shop Cart"> </a>
+                <a href="cart.html"><img src="images/clean-bag.png" alt="Shop Cart"></a>
             </div>
-            <a href ="index.html"><h1>S T A R L I F T</h1></a>
+            <a href="index.html"><h1>S T A R L I F T</h1></a>
         </nav>
     </header>
+
     <main>
         <section>
             <h2>X-Craft Mark III</h2>
-            <a href="X-CRAFT.html">
                 <div class="images">
                     <img src="images/lit ship.png" alt="X-Craft Mark III">
                     <h3>X-Craft Mark III</h3>
@@ -43,9 +44,9 @@
                     <span class="star">&#9733;</span>
                     <span class="star">&#9733;</span>
                     <span class="star">&#9733;</span>
-                    <p><button onclick="buyShip()">Buy Ship</button> <!-- Buy Ship Button --></p>
+                    <p><button class="but" onclick="buyShip()">Buy Ship</button></p>
                 </div>
-            </a>
+        </section>
     </main>
 
     <div class="footershop">
@@ -54,5 +55,55 @@
         </footer>
     </div>
 
+    <script>
+        // Initialize credits in localStorage if not already set
+        if (!localStorage.getItem("credits")) {
+            localStorage.setItem("credits", "0");
+        }
+
+        // Function to update credits display
+        function updateCreditsDisplay() {
+            const credits = localStorage.getItem("credits") || "0";
+            document.getElementById("creditsDisplay").innerText = credits;
+        }
+        updateCreditsDisplay();
+
+        // Obfuscated flag
+        const encodedFlag = "Q1RGezBiemZ1c2NhdGlvbl9NYXN0ZXJ9"; // Encoded in Base64
+
+        // Decode function
+        function decodeFlag(encoded) {
+            return atob(encoded);
+        }
+
+        // Function to buy the ship
+        function buyShip() {
+            const credits = parseInt(localStorage.getItem("credits")) || 0;
+            const shipCost = 2000000; // Cost of the X-Craft Mark III
+
+            if (credits >= shipCost) {
+                // Deduct the cost and update credits
+                localStorage.setItem("credits", credits - shipCost);
+                updateCreditsDisplay();
+
+                 // Display the flag in a prompt, allowing the user to copy the flag
+        prompt("Purchase Successful! Copy the flag below:", decodeFlag(encodedFlag));
+    } else {
+                alert("Not enough credits! You need more credits to buy this ship.");
+            }
+        }
+
+                // Disable right-click, F12, and developer tools shortcuts
+                document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I', 'C', 'J'].includes(e.key))) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Automatically update credits every second in case of external changes
+        setInterval(updateCreditsDisplay, 1000);
+    </script>
 </body>
 </html>

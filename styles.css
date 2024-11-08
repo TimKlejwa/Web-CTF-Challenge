@@ -63,6 +63,9 @@ header>nav>.right>a>img{
     height: 1.5rem;
     width: auto;
     max-height: 100%;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
 }
 
 header nav div a {

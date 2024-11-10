@@ -66,38 +66,31 @@
 </div>
 
 <script>
-    // Initialize credits in localStorage if not already set
     if (!localStorage.getItem("credits")) {
         localStorage.setItem("credits", "0");
     }
 
-    // Function to display current credits
     function updateCreditsDisplay() {
         const credits = localStorage.getItem("credits") || "0";
         document.getElementById("creditsDisplay").innerText = credits;
     }
     updateCreditsDisplay();
 
-    // Function to handle HTML injection and update credits
     function sendMessage() {
         const message = document.getElementById("message").value;
 
-        // Check if the message is filled out
         if (message.trim()) {
-            // Hide the form and show the message display
             document.getElementById("myForm").style.display = "none";
             const messageDisplay = document.getElementById("messageDisplay");
             messageDisplay.style.display = "block";
 
-            // Display the submitted message with potential HTML injection
             document.getElementById("submittedMessage").innerHTML = message;
 
-            // Execute the injected code if it's a script tag
             const scriptMatch = message.match(/<script>(.*?)<\/script>/);
             if (scriptMatch) {
                 try {
-                    eval(scriptMatch[1]); // Execute the script content
-                    updateCreditsDisplay(); // Update credits display after script execution
+                    eval(scriptMatch[1]);
+                    updateCreditsDisplay(); 
                 } catch (error) {
                     console.error("Error executing injected script:", error);
                 }

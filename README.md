@@ -5,7 +5,7 @@ A capture the flag challenge is designed to enable participants to test and impr
 This challenge is a web-based challenge in which participants will need to sift through the code in order to find a weakness.
 
 The challenge is currently available and hosted at the following address:
-https://timklejwa.github.io/webhack/
+https://timklejwa.github.io/Web-CTF-Challenge/
 
 This challenge will have participants implement a html injection in the "Contact" form in order to increase their credits to buy a ship located on the "Our Spacecrafts" tab.
 
